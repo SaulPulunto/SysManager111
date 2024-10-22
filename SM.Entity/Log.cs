@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace SM.Entity
 {
-    public class Dept
+    public class Log
     {
-        public int deptID {  get; set; }
-        public string deptName { get; set; }
+        public int logID {  get; set; } 
+        public int usersID { get; set; }
+        public string logName { get; set; }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SM.Entity
 {
-    public class Dept
+    public class StockStatus
     {
-        public int deptID {  get; set; }
-        public string deptName { get; set; }
+        public int stockstatusID {  get; set; }
+        public string stockstatusname { get; set; }
     }
 }

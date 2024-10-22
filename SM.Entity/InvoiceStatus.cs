@@ -8,7 +8,7 @@ namespace SM.Entity
 {
     public class InvoiceStatus
     {
-        public int invoicestatusID {  get; set; }
+        public int invoicestatusID { get; set; }
         public string state { get; set; }
     }
 }
