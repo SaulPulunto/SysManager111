@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SM.Entity
-{
+{ 
     public class Log
     {
         public int logID {  get; set; } 

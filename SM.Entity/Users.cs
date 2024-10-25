@@ -14,7 +14,8 @@ namespace SM.Entity
         public string name { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        public string password { get; set; }
+        public string address { get; set; }
         public string phone { get; set; }
     }
 }

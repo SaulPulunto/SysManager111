@@ -48,6 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleBL.cs" />
     <Compile Include="SupplierBL.cs" />
+    <Compile Include="UsersBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SM.DataAccess\SM.DataAccess.csproj">
