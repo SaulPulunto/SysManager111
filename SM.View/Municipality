@@ -1,0 +1,6 @@
+private MunicipalityDAL dal = new MunicipalityDAL();
+
+        public List<Municipality> GetMunicipalities(int deptID)
+        {
+            return dal.spGetAllMunicipality(deptID);
+        }
