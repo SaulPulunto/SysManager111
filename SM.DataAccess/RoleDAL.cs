@@ -27,7 +27,7 @@ namespace SM.DataAccess
                 using (SqlCommand cmd = new SqlCommand("spRoleInsert", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@role", entity.role);
+                    cmd.Parameters.AddWithValue("@roleName", entity.roleName);
                     conn.Open();
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -44,7 +44,7 @@ namespace SM.DataAccess
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@roleID", entity.roleID);
-                    cmd.Parameters.AddWithValue("@role", entity.role);
+                    cmd.Parameters.AddWithValue("@roleName", entity.roleName);
                     conn.Open();
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -87,7 +87,7 @@ namespace SM.DataAccess
                                 Role entity = new Role()
                                 {
                                     roleID = dr.GetInt32(0),
-                                    role = dr.GetString(1),
+                                    roleName = dr.GetString(1),
                                 };
                                 result.Add(entity);
                             }
@@ -118,7 +118,7 @@ namespace SM.DataAccess
                                 result = new Role()
                                 {
                                     roleID = dr.GetInt32(0),
-                                    role = dr.GetString(1),
+                                    roleName = dr.GetString(1),
                                 };
                             }
                         }

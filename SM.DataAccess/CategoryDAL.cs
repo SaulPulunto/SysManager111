@@ -27,7 +27,7 @@ namespace SM.DataAccess
                 using (SqlCommand cmd = new SqlCommand("spCategoryInsert", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@name", entity.name);
+                    cmd.Parameters.AddWithValue("@CategoryName", entity.CategoryName);
                     conn.Open();
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -44,7 +44,7 @@ namespace SM.DataAccess
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@category", entity.categoryID);
-                    cmd.Parameters.AddWithValue("@name", entity.name);
+                    cmd.Parameters.AddWithValue("@CategoryName", entity.CategoryName);
                     conn.Open();
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -87,7 +87,7 @@ namespace SM.DataAccess
                                 Category entity = new Category()
                                 {
                                     categoryID = dr.GetInt32(0),
-                                    name = dr.GetString(1),
+                                    CategoryName = dr.GetString(1),
                                 };
                                 result.Add(entity);
                             }
@@ -118,7 +118,7 @@ namespace SM.DataAccess
                                 result = new Category()
                                 {
                                     categoryID = dr.GetInt32(0),
-                                    name = dr.GetString(1),
+                                    CategoryName = dr.GetString(1),
                                 };
                             }
                         }
@@ -146,7 +146,7 @@ namespace SM.DataAccess
                             Category role = new Category
                             {
                                 categoryID = (int)reader["RoleID"],
-                                name = reader["Name"].ToString(),
+                                CategoryName = reader["Name"].ToString(),
                             };
                             roles.Add(role);
                         }

@@ -17,7 +17,7 @@ namespace SM.View
         public dgvLog()
         {
             InitializeComponent();
-            UpdateGrid(); 
+            UpdateGrid();
         }
         public void UpdateGrid()
         {
@@ -64,6 +64,13 @@ namespace SM.View
             {
                 MessageBox.Show("Error al insertar el usuario: " + ex.Message);
             }
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            MenuForm form1 = new MenuForm();
+            form1.Show();
+            this.Hide();
         }
     }
 }

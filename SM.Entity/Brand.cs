@@ -9,6 +9,6 @@ namespace SM.Entity
     public class Brand
     {
         public int brandID { get; set; }
-        public string name { get; set; }
+        public string brandName { get; set; }
     }
 }

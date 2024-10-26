@@ -9,6 +9,6 @@ namespace SM.Entity
     public class Category
     {
         public int categoryID {  get; set; }
-        public string name { get; set; }
+        public string CategoryName { get; set; }
     }
 }

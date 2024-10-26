@@ -51,7 +51,7 @@ namespace SM.View
 
             Category entity = new Category()
             {
-                name = _name
+                CategoryName = _name
             };
 
             if (id == 0)

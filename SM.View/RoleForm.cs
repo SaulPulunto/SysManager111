@@ -49,7 +49,7 @@ namespace SM.View
 
             Role entity = new Role()
             {
-                role = _name
+                roleName = _name
             };
 
             if (id == 0)

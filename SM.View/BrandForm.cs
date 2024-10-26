@@ -49,7 +49,7 @@ namespace SM.View
 
             Brand entity = new Brand()
             {
-                name = name
+                brandName = name
             };
 
             if (id == 0)

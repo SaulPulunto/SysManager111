@@ -59,5 +59,12 @@ namespace SM.View
         {
             Application.Exit();
         }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            dgvLog form1 = new dgvLog();
+            form1.Show();
+            this.Hide();
+        }
     }
 }

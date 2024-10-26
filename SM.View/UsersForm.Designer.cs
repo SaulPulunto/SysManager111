@@ -50,6 +50,7 @@
             errorProvider1 = new ErrorProvider(components);
             txtaddress = new TextBox();
             txttelefono = new TextBox();
+            btnMenu = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvLogForm).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -221,12 +222,24 @@
             txttelefono.Size = new Size(192, 27);
             txttelefono.TabIndex = 21;
             // 
+            // btnMenu
+            // 
+            btnMenu.BackColor = SystemColors.ActiveCaption;
+            btnMenu.Location = new Point(908, 12);
+            btnMenu.Name = "btnMenu";
+            btnMenu.Size = new Size(116, 29);
+            btnMenu.TabIndex = 22;
+            btnMenu.Text = "Volver al Menu";
+            btnMenu.UseVisualStyleBackColor = false;
+            btnMenu.Click += btnMenu_Click;
+            // 
             // dgvLog
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGoldenrodYellow;
             ClientSize = new Size(1036, 500);
+            Controls.Add(btnMenu);
             Controls.Add(txttelefono);
             Controls.Add(txtaddress);
             Controls.Add(btnInsert);
@@ -278,5 +291,6 @@
         private ErrorProvider errorProvider1;
         private TextBox txtaddress;
         private TextBox txttelefono;
+        private Button btnMenu;
     }
 }
