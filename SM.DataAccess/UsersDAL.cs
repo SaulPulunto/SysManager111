@@ -32,7 +32,7 @@ namespace SM.DataAccess
                         cmd.Parameters.AddWithValue("@name", entity.name);
                         cmd.Parameters.AddWithValue("@LastName", entity.LastName);
                         cmd.Parameters.AddWithValue("@Email", entity.Email);
-                        cmd.Parameters.AddWithValue("@Password", entity.password);
+                        cmd.Parameters.AddWithValue("@Password", entity.Password);
                         cmd.Parameters.AddWithValue("@address", entity.address);
                         cmd.Parameters.AddWithValue("@phone", entity.phone);
                         cmd.Parameters.AddWithValue("@roleID", entity.roleID);
@@ -67,7 +67,7 @@ namespace SM.DataAccess
                     cmd.Parameters.AddWithValue("@name", entity.name);
                     cmd.Parameters.AddWithValue("@LastName", entity.LastName);
                     cmd.Parameters.AddWithValue("@Email", entity.Email);
-                    cmd.Parameters.AddWithValue("@Password", entity.password);
+                    cmd.Parameters.AddWithValue("@Password", entity.Password);
                     cmd.Parameters.AddWithValue("@address", entity.address);
                     cmd.Parameters.AddWithValue("@phone", entity.phone);
                     conn.Open();
@@ -118,7 +118,7 @@ namespace SM.DataAccess
                                     name = dr.GetString(3),
                                     LastName = dr.GetString(4),
                                     Email = dr.GetString(5),
-                                    password = dr.GetString(6),
+                                    Password = dr.GetString(6),
                                     address = dr.GetString(7),
                                     phone = dr.GetString(8),
                                 };

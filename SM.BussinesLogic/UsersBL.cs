@@ -105,5 +105,6 @@ namespace SM.BussinessLogic
                 throw new Exception("Error al verificar el usuario", ex);
             }
         }
+
     }
 }

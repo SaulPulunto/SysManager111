@@ -62,7 +62,7 @@ namespace SM.View
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-            dgvLog form1 = new dgvLog();
+            UsersForm form1 = new UsersForm();
             form1.Show();
             this.Hide();
         }
