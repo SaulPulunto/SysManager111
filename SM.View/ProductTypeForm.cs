@@ -73,5 +73,9 @@ namespace SM.View
             }
             UpdateGrid();
         }
+        private void btnSalida_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

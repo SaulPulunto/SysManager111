@@ -66,5 +66,12 @@ namespace SM.View
             form1.Show();
             this.Hide();
         }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            ProductsForm form1 = new ProductsForm();
+            form1.Show();
+            this.Hide();
+        }
     }
 }
