@@ -27,7 +27,7 @@ namespace SM.DataAccess
                 using (SqlCommand cmd = new SqlCommand("spBrandInsert", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@name", entity.name);
+                    cmd.Parameters.AddWithValue("@brandName", entity.brandName);
                     conn.Open();
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -44,7 +44,7 @@ namespace SM.DataAccess
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@brandID", entity.brandID);
-                    cmd.Parameters.AddWithValue("@brand", entity.name);
+                    cmd.Parameters.AddWithValue("@brandName", entity.brandName);
                     conn.Open();
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -87,7 +87,7 @@ namespace SM.DataAccess
                                 Brand entity = new Brand()
                                 {
                                     brandID = dr.GetInt32(0),
-                                    name = dr.GetString(1),
+                                    brandName = dr.GetString(1),
                                 };
                                 result.Add(entity);
                             }
@@ -118,7 +118,7 @@ namespace SM.DataAccess
                                 result = new Brand()
                                 {
                                     brandID = dr.GetInt32(0),
-                                    name = dr.GetString(1),
+                                    brandName = dr.GetString(1),
                                 };
                             }
                         }

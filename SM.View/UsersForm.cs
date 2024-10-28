@@ -1,4 +1,5 @@
-﻿using SM.BussinessLogic;
+﻿using SM.BussinesLogic;
+using SM.BussinessLogic;
 using SM.Entity;
 using System;
 using System.Collections.Generic;
@@ -12,48 +13,70 @@ using System.Windows.Forms;
 
 namespace SM.View
 {
-    public partial class dgvLog : Form
+    public partial class UsersForm : Form
     {
-        public dgvLog()
+        public UsersForm()
         {
             InitializeComponent();
-            UpdateGrid(); 
+            UpdateGrid();
         }
         public void UpdateGrid()
         {
             dgvLogForm.DataSource = UsersBL.Instance.SelectAll();
         }
-        public void SupplierForm_Load(object sender, EventArgs e)
+        private void SupplierForm_Load(object sender, EventArgs e)
         {
             UpdateGrid();
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            MenuForm form1 = new MenuForm();
+            form1.Show();
+            this.Hide();
+        }
+
+        private void btnInsert_Click_1(object sender, EventArgs e)
         {
             try
             {
-                Users newUser = new Users()
+                string _name = txtName.Text.Trim();
+                string _lastname = txtLastName.Text.Trim();
+                string _email = txtEmail.Text.Trim();
+                string _contra = txtContra.Text.Trim();
+                string _address = txtaddress.Text.Trim();
+                string _phone = txttelefono.Text.Trim();
+
+                if (string.IsNullOrEmpty(_name))
                 {
-                    name = txtName.Text.Trim(),
-                    LastName = txtLastName.Text.Trim(),
-                    Email = txtEmail.Text.Trim(),
-                    password = txtContra.Text.Trim(),
-                    address = txtaddress.Text.Trim(),
-                    phone = txttelefono.Text.Trim(),
+                    errorProvider1.SetError(txtName, "NOMBRE NECESARIO");
+                    return;
+                }
+                errorProvider1.Clear();
+
+                Users entity = new Users()
+                {
                     roleID = int.Parse(txtRoleID.Text.Trim()),
-                    municipalityID = int.Parse(txtMuniciID.Text.Trim())
+                    municipalityID = int.Parse(txtMunicipioID.Text.ToString()),
+                    name = _name,
+                    LastName = _lastname,
+                    Email = _email,
+                    Password = _contra,
+                    address = _address,
+                    phone = _phone,
                 };
 
-                bool isInserted = UsersBL.Instance.Insert(newUser);
-
-                if (isInserted)
+                if (UsersBL.Instance.Insert(entity))
                 {
-                    MessageBox.Show("Usuario insertado exitosamente.");
+                    MessageBox.Show("Usuario registrado correctamente", "Confirmación",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UpdateGrid();
+                    ClearForm();
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo insertar el usuario.");
+                    MessageBox.Show("No se pudo registrar el usuario", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (FormatException ex)
@@ -64,6 +87,11 @@ namespace SM.View
             {
                 MessageBox.Show("Error al insertar el usuario: " + ex.Message);
             }
+        }
+
+        private void ClearForm()
+        {
+            throw new NotImplementedException();
         }
     }
 }

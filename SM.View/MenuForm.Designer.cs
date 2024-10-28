@@ -34,12 +34,13 @@
             btnBrand = new Button();
             btnSupplier = new Button();
             btnSalida = new Button();
+            btnUsers = new Button();
             SuspendLayout();
             // 
             // btnCategory
             // 
             btnCategory.BackColor = SystemColors.ActiveCaption;
-            btnCategory.Location = new Point(334, 177);
+            btnCategory.Location = new Point(134, 129);
             btnCategory.Name = "btnCategory";
             btnCategory.Size = new Size(208, 50);
             btnCategory.TabIndex = 0;
@@ -50,7 +51,7 @@
             // btnRole
             // 
             btnRole.BackColor = SystemColors.ActiveCaption;
-            btnRole.Location = new Point(334, 233);
+            btnRole.Location = new Point(460, 129);
             btnRole.Name = "btnRole";
             btnRole.Size = new Size(208, 50);
             btnRole.TabIndex = 1;
@@ -61,7 +62,7 @@
             // btnProType
             // 
             btnProType.BackColor = SystemColors.ActiveCaption;
-            btnProType.Location = new Point(334, 289);
+            btnProType.Location = new Point(134, 217);
             btnProType.Name = "btnProType";
             btnProType.Size = new Size(208, 50);
             btnProType.TabIndex = 2;
@@ -72,7 +73,7 @@
             // btnBrand
             // 
             btnBrand.BackColor = SystemColors.ActiveCaption;
-            btnBrand.Location = new Point(334, 345);
+            btnBrand.Location = new Point(134, 313);
             btnBrand.Name = "btnBrand";
             btnBrand.Size = new Size(208, 50);
             btnBrand.TabIndex = 3;
@@ -83,7 +84,7 @@
             // btnSupplier
             // 
             btnSupplier.BackColor = SystemColors.ActiveCaption;
-            btnSupplier.Location = new Point(334, 401);
+            btnSupplier.Location = new Point(460, 217);
             btnSupplier.Name = "btnSupplier";
             btnSupplier.Size = new Size(208, 50);
             btnSupplier.TabIndex = 4;
@@ -102,6 +103,17 @@
             btnSalida.UseVisualStyleBackColor = false;
             btnSalida.Click += btnSalida_Click;
             // 
+            // btnUsers
+            // 
+            btnUsers.BackColor = SystemColors.ActiveCaption;
+            btnUsers.Location = new Point(460, 313);
+            btnUsers.Name = "btnUsers";
+            btnUsers.Size = new Size(208, 50);
+            btnUsers.TabIndex = 6;
+            btnUsers.Text = "Usuarios";
+            btnUsers.UseVisualStyleBackColor = false;
+            btnUsers.Click += btnUsers_Click;
+            // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -109,6 +121,7 @@
             BackColor = Color.LightGoldenrodYellow;
             ClientSize = new Size(888, 547);
             ControlBox = false;
+            Controls.Add(btnUsers);
             Controls.Add(btnSalida);
             Controls.Add(btnSupplier);
             Controls.Add(btnBrand);
@@ -128,5 +141,6 @@
         private Button btnBrand;
         private Button btnSupplier;
         private Button btnSalida;
+        private Button btnUsers;
     }
 }

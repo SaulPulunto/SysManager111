@@ -1,6 +1,6 @@
 ﻿namespace SM.View
 {
-    partial class dgvLog
+    partial class UsersForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,6 @@
             dgvLogForm = new DataGridView();
             txtRoleID = new TextBox();
             label3 = new Label();
-            txtMuniciID = new TextBox();
             label4 = new Label();
             txtName = new TextBox();
             txtLastName = new TextBox();
@@ -50,6 +49,8 @@
             errorProvider1 = new ErrorProvider(components);
             txtaddress = new TextBox();
             txttelefono = new TextBox();
+            btnMenu = new Button();
+            txtMunicipioID = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvLogForm).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -74,9 +75,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(66, 36);
             label1.Name = "label1";
-            label1.Size = new Size(59, 20);
+            label1.Size = new Size(74, 20);
             label1.TabIndex = 2;
-            label1.Text = "Usuario";
+            label1.Text = "UsuarioID";
             // 
             // label2
             // 
@@ -108,16 +109,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(66, 79);
             label3.Name = "label3";
-            label3.Size = new Size(31, 20);
+            label3.Size = new Size(46, 20);
             label3.TabIndex = 6;
-            label3.Text = "Rol";
-            // 
-            // txtMuniciID
-            // 
-            txtMuniciID.Location = new Point(160, 125);
-            txtMuniciID.Name = "txtMuniciID";
-            txtMuniciID.Size = new Size(192, 27);
-            txtMuniciID.TabIndex = 7;
+            label3.Text = "RolID";
             // 
             // label4
             // 
@@ -202,6 +196,7 @@
             btnInsert.TabIndex = 19;
             btnInsert.Text = "Insertar";
             btnInsert.UseVisualStyleBackColor = true;
+            btnInsert.Click += btnInsert_Click_1;
             // 
             // errorProvider1
             // 
@@ -221,12 +216,32 @@
             txttelefono.Size = new Size(192, 27);
             txttelefono.TabIndex = 21;
             // 
-            // dgvLog
+            // btnMenu
+            // 
+            btnMenu.BackColor = SystemColors.ActiveCaption;
+            btnMenu.Location = new Point(908, 12);
+            btnMenu.Name = "btnMenu";
+            btnMenu.Size = new Size(116, 29);
+            btnMenu.TabIndex = 22;
+            btnMenu.Text = "Volver al Menu";
+            btnMenu.UseVisualStyleBackColor = false;
+            btnMenu.Click += btnMenu_Click;
+            // 
+            // txtMunicipioID
+            // 
+            txtMunicipioID.Location = new Point(160, 125);
+            txtMunicipioID.Name = "txtMunicipioID";
+            txtMunicipioID.Size = new Size(192, 27);
+            txtMunicipioID.TabIndex = 23;
+            // 
+            // UsersForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGoldenrodYellow;
             ClientSize = new Size(1036, 500);
+            Controls.Add(txtMunicipioID);
+            Controls.Add(btnMenu);
             Controls.Add(txttelefono);
             Controls.Add(txtaddress);
             Controls.Add(btnInsert);
@@ -239,7 +254,6 @@
             Controls.Add(txtLastName);
             Controls.Add(txtName);
             Controls.Add(label4);
-            Controls.Add(txtMuniciID);
             Controls.Add(label3);
             Controls.Add(txtRoleID);
             Controls.Add(dgvLogForm);
@@ -247,8 +261,8 @@
             Controls.Add(label1);
             Controls.Add(txtContra);
             Controls.Add(txtUsers);
-            Name = "dgvLog";
-            Text = "LogForm";
+            Name = "UsersForm";
+            Text = "UsersForm";
             ((System.ComponentModel.ISupportInitialize)dgvLogForm).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
@@ -264,7 +278,6 @@
         private DataGridView dgvLogForm;
         private TextBox txtRoleID;
         private Label label3;
-        private TextBox txtMuniciID;
         private Label label4;
         private TextBox txtName;
         private TextBox txtLastName;
@@ -278,5 +291,7 @@
         private ErrorProvider errorProvider1;
         private TextBox txtaddress;
         private TextBox txttelefono;
+        private Button btnMenu;
+        private TextBox txtMunicipioID;
     }
 }

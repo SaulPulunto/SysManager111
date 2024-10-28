@@ -59,5 +59,12 @@ namespace SM.View
         {
             Application.Exit();
         }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            UsersForm form1 = new UsersForm();
+            form1.Show();
+            this.Hide();
+        }
     }
 }
