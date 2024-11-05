@@ -59,7 +59,7 @@ namespace SM.View
                     stockstatusID = int.Parse(txtstockstatusID.Text.ToString()),
                     productsID = int.Parse(txtproductsID.Text.ToString()),
                     branchID = int.Parse(txtbranchID.Text.ToString()),
-                    quantity = _quantity,
+                    quantity = int.Parse(txtquantity.Text.ToString())
                 };
 
                 if (StockBL.Instance.Insert(entity))

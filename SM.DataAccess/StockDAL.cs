@@ -108,7 +108,7 @@ namespace SM.DataAccess
                                     stockstatusID = dr.GetInt32(1),
                                     branchID = dr.GetInt32(2),
                                     productsID = dr.GetInt32(3),
-                                    quantity = dr.GetString(4),
+                                    quantity = dr.GetInt32(4),
                                 };
                                 result.Add(entity);
                             }
@@ -140,7 +140,7 @@ namespace SM.DataAccess
                                 {
                                     stockID = dr.GetInt32(0),
                                     stockstatusID = dr.GetInt32(1),
-                                    quantity = dr.GetString(2),
+                                    quantity = dr.GetInt32(2),
                                 };
                             }
                         }

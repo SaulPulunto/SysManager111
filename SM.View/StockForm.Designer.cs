@@ -166,6 +166,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightGoldenrodYellow;
             ClientSize = new Size(1036, 500);
             Controls.Add(label5);
             Controls.Add(txtquantity);

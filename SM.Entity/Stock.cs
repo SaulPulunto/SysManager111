@@ -12,6 +12,6 @@ namespace SM.Entity
         public int stockstatusID { get; set; }
         public int productsID { get; set; }
         public int branchID { get; set; }
-        public string quantity { get; set; }
+        public int quantity { get; set; }
     }
 }
