@@ -47,7 +47,11 @@ namespace SM.View
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+        private void btnSalida_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }
 

@@ -9,28 +9,28 @@ using System.Threading.Tasks;
 
 namespace SM.DataAccess
 {
-    public class SupplierDAL : Connection
+    public class PurchaseDAL:Connection
     {
-        private static SupplierDAL _instance;
-        public static SupplierDAL Instance
+        private static PurchaseDAL _instance;
+        public static PurchaseDAL Instance
         {
             get
             {
-                return _instance ?? (_instance = new SupplierDAL());
+                return _instance ?? (_instance = new PurchaseDAL());
             }
         }
-        public bool Insert(Supplier entity)
+        public bool Insert(Purchase entity)
         {
             bool result = false;
             using (SqlConnection conn = new SqlConnection(_strConn))
             {
-                using (SqlCommand cmd = new SqlCommand("spSupplierInsert", conn))
+                using (SqlCommand cmd = new SqlCommand("sp_InsertPurchase", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@name", entity.name);
-                    cmd.Parameters.AddWithValue("@phone", entity.phone);
-                    cmd.Parameters.AddWithValue("@email", entity.email);
-                    cmd.Parameters.AddWithValue("@address", entity.address);
+                    cmd.Parameters.AddWithValue("@supplierID", entity.supplierID);
+                    cmd.Parameters.AddWithValue("@productsID", entity.productsID);
+                    cmd.Parameters.AddWithValue("@quantity", entity.quantity);
+                    cmd.Parameters.AddWithValue("@totalpurchase", entity.totalpurchase);
                     conn.Open();
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -38,7 +38,7 @@ namespace SM.DataAccess
             return result;
         }
 
-        public bool Update(Supplier entity)
+        public bool Update(Purchase entity)
         {
             bool result = false;
             using (SqlConnection conn = new SqlConnection(_strConn))
@@ -46,11 +46,11 @@ namespace SM.DataAccess
                 using (SqlCommand cmd = new SqlCommand("spSupplierUpdate", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@supplierID", entity.supplierID);
-                    cmd.Parameters.AddWithValue("@name", entity.name);
-                    cmd.Parameters.AddWithValue("@phone", entity.phone);
-                    cmd.Parameters.AddWithValue("@email", entity.email);
-                    cmd.Parameters.AddWithValue("@address", entity.address);
+                    cmd.Parameters.AddWithValue("@purchaseID", entity.purchaseID);
+                    cmd.Parameters.AddWithValue("@resupplyID", entity.supplierID);
+                    cmd.Parameters.AddWithValue("@productsID", entity.productsID);
+                    cmd.Parameters.AddWithValue("@quantity", entity.quantity);
+                    cmd.Parameters.AddWithValue("@totalpurchase", entity.totalpurchase);
                     conn.Open();
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -66,7 +66,7 @@ namespace SM.DataAccess
                 using (SqlCommand cmd = new SqlCommand("spSupplierDelete", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@supplierID", id);
+                    cmd.Parameters.AddWithValue("@purchaseID", id);
                     conn.Open();
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -74,12 +74,12 @@ namespace SM.DataAccess
             return result;
         }
 
-        public List<Supplier> SelectAll()
+        public List<Purchase> SelectAll()
         {
-            List<Supplier> result = null;
+            List<Purchase> result = null;
             using (SqlConnection conn = new SqlConnection(_strConn))
             {
-                using (SqlCommand cmd = new SqlCommand("spSupplierSelectAll", conn))
+                using (SqlCommand cmd = new SqlCommand("spPurchaseSelecta", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     conn.Open();
@@ -87,16 +87,16 @@ namespace SM.DataAccess
                     {
                         if (dr != null)
                         {
-                            result = new List<Supplier>();
+                            result = new List<Purchase>();
                             while (dr.Read())
                             {
-                                Supplier entity = new Supplier()
+                                Purchase entity = new Purchase()
                                 {
-                                    supplierID = dr.GetInt32(0),
-                                    name = dr.GetString(1),
-                                    phone = dr.GetString(2),
-                                    email = dr.GetString(3),
-                                    address = dr.GetString(4),
+                                    purchaseID = dr.GetInt32(0),
+                                    productsID = dr.GetInt32(1),
+                                    supplierID = dr.GetInt32(2),
+                                    quantity = dr.GetInt32(3),
+                                    totalpurchase = dr.GetDecimal(4),
                                 };
                                 result.Add(entity);
                             }
@@ -107,11 +107,9 @@ namespace SM.DataAccess
             return result;
         }
 
-
-
-        public Supplier SelectById(int id)
+        public Purchase SelectById(int id)
         {
-            Supplier result = null;
+            Purchase result = null;
             using (SqlConnection conn = new SqlConnection(_strConn))
             {
                 using (SqlCommand cmd = new SqlCommand("spSupplierSelectByID", conn))
@@ -126,10 +124,13 @@ namespace SM.DataAccess
                         {
                             while (dr.Read())
                             {
-                                result = new Supplier()
+                                result = new Purchase()
                                 {
-                                    supplierID = dr.GetInt32(0),
-                                    name = dr.GetString(1),
+                                    purchaseID = dr.GetInt32(0),
+                                    productsID = dr.GetInt32(1),
+                                    supplierID = dr.GetInt32(2),
+                                    quantity = dr.GetInt32(3),
+                                    totalpurchase = dr.GetDecimal(4),
                                 };
                             }
                         }
@@ -138,24 +139,5 @@ namespace SM.DataAccess
             }
             return result;
         }
-
-        public List<Supplier> GetSu() { List<Supplier> result = null; 
-            using (SqlConnection conn = new SqlConnection(_strConn)) 
-            { 
-                using (SqlCommand cmd = new SqlCommand("GetSupplier", conn)) 
-                { 
-                    cmd.CommandType = CommandType.StoredProcedure; conn.Open(); 
-                    using (SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.SingleResult))
-                    { 
-                        if (dr != null)
-                        { 
-                            result = new List<Supplier>(); 
-                            while (dr.Read()) 
-                            { 
-                                Supplier entity = new Supplier() 
-                        { 
-                                    name = dr.GetString(0) 
-                                }; result.Add(entity); } } } } } return result; }
-
     }
 }

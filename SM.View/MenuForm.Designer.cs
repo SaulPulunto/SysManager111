@@ -35,12 +35,15 @@
             btnSupplier = new Button();
             btnSalida = new Button();
             btnUsers = new Button();
+            btnProducts = new Button();
+            btnSale = new Button();
+            btnCustomer = new Button();
             SuspendLayout();
             // 
             // btnCategory
             // 
             btnCategory.BackColor = SystemColors.ActiveCaption;
-            btnCategory.Location = new Point(134, 129);
+            btnCategory.Location = new Point(134, 76);
             btnCategory.Name = "btnCategory";
             btnCategory.Size = new Size(208, 50);
             btnCategory.TabIndex = 0;
@@ -51,7 +54,7 @@
             // btnRole
             // 
             btnRole.BackColor = SystemColors.ActiveCaption;
-            btnRole.Location = new Point(460, 129);
+            btnRole.Location = new Point(505, 76);
             btnRole.Name = "btnRole";
             btnRole.Size = new Size(208, 50);
             btnRole.TabIndex = 1;
@@ -62,7 +65,7 @@
             // btnProType
             // 
             btnProType.BackColor = SystemColors.ActiveCaption;
-            btnProType.Location = new Point(134, 217);
+            btnProType.Location = new Point(134, 152);
             btnProType.Name = "btnProType";
             btnProType.Size = new Size(208, 50);
             btnProType.TabIndex = 2;
@@ -73,7 +76,7 @@
             // btnBrand
             // 
             btnBrand.BackColor = SystemColors.ActiveCaption;
-            btnBrand.Location = new Point(134, 313);
+            btnBrand.Location = new Point(134, 236);
             btnBrand.Name = "btnBrand";
             btnBrand.Size = new Size(208, 50);
             btnBrand.TabIndex = 3;
@@ -84,7 +87,7 @@
             // btnSupplier
             // 
             btnSupplier.BackColor = SystemColors.ActiveCaption;
-            btnSupplier.Location = new Point(460, 217);
+            btnSupplier.Location = new Point(505, 152);
             btnSupplier.Name = "btnSupplier";
             btnSupplier.Size = new Size(208, 50);
             btnSupplier.TabIndex = 4;
@@ -106,13 +109,46 @@
             // btnUsers
             // 
             btnUsers.BackColor = SystemColors.ActiveCaption;
-            btnUsers.Location = new Point(460, 313);
+            btnUsers.Location = new Point(505, 236);
             btnUsers.Name = "btnUsers";
             btnUsers.Size = new Size(208, 50);
             btnUsers.TabIndex = 6;
             btnUsers.Text = "Usuarios";
             btnUsers.UseVisualStyleBackColor = false;
             btnUsers.Click += btnUsers_Click;
+            // 
+            // btnProducts
+            // 
+            btnProducts.BackColor = SystemColors.ActiveCaption;
+            btnProducts.Location = new Point(134, 313);
+            btnProducts.Name = "btnProducts";
+            btnProducts.Size = new Size(208, 50);
+            btnProducts.TabIndex = 7;
+            btnProducts.Text = "Productos";
+            btnProducts.UseVisualStyleBackColor = false;
+            btnProducts.Click += btnProducts_Click;
+            // 
+            // btnSale
+            // 
+            btnSale.BackColor = SystemColors.ActiveCaption;
+            btnSale.Location = new Point(505, 313);
+            btnSale.Name = "btnSale";
+            btnSale.Size = new Size(208, 50);
+            btnSale.TabIndex = 8;
+            btnSale.Text = "Ventas";
+            btnSale.UseVisualStyleBackColor = false;
+            btnSale.Click += btnSale_Click;
+            // 
+            // btnCustomer
+            // 
+            btnCustomer.BackColor = SystemColors.ActiveCaption;
+            btnCustomer.Location = new Point(134, 389);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Size = new Size(208, 50);
+            btnCustomer.TabIndex = 9;
+            btnCustomer.Text = "Cliente";
+            btnCustomer.UseVisualStyleBackColor = false;
+            btnCustomer.Click += btnCustomer_Click;
             // 
             // MenuForm
             // 
@@ -121,6 +157,9 @@
             BackColor = Color.LightGoldenrodYellow;
             ClientSize = new Size(888, 547);
             ControlBox = false;
+            Controls.Add(btnCustomer);
+            Controls.Add(btnSale);
+            Controls.Add(btnProducts);
             Controls.Add(btnUsers);
             Controls.Add(btnSalida);
             Controls.Add(btnSupplier);
@@ -142,5 +181,8 @@
         private Button btnSupplier;
         private Button btnSalida;
         private Button btnUsers;
+        private Button btnProducts;
+        private Button btnSale;
+        private Button btnCustomer;
     }
 }

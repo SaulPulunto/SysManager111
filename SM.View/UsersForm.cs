@@ -71,7 +71,7 @@ namespace SM.View
                     MessageBox.Show("Usuario registrado correctamente", "Confirmación",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UpdateGrid();
-                    ClearForm();
+                    //ClearForm();
                 }
                 else
                 {
@@ -83,15 +83,10 @@ namespace SM.View
             {
                 MessageBox.Show("Error en el formato de los datos: " + ex.Message);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al insertar el usuario: " + ex.Message);
-            }
         }
-
-        private void ClearForm()
+        private void btnSalida_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Application.Exit();
         }
     }
 }

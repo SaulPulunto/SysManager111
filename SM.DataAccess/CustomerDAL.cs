@@ -1,36 +1,35 @@
-﻿using SM.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SM.Entity;
 
 namespace SM.DataAccess
 {
-    public class SupplierDAL : Connection
+    public class CustomerDAL : Connection
     {
-        private static SupplierDAL _instance;
-        public static SupplierDAL Instance
+        private static CustomerDAL _instance;
+        public static CustomerDAL Instance
         {
             get
             {
-                return _instance ?? (_instance = new SupplierDAL());
+                return _instance ?? (_instance = new CustomerDAL());
             }
         }
-        public bool Insert(Supplier entity)
+        public bool Insert(Customer entity)
         {
             bool result = false;
             using (SqlConnection conn = new SqlConnection(_strConn))
             {
-                using (SqlCommand cmd = new SqlCommand("spSupplierInsert", conn))
+                using (SqlCommand cmd = new SqlCommand("spCustomerInsert", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@name", entity.name);
+                    cmd.Parameters.AddWithValue("@lastname", entity.lastname);
                     cmd.Parameters.AddWithValue("@phone", entity.phone);
-                    cmd.Parameters.AddWithValue("@email", entity.email);
-                    cmd.Parameters.AddWithValue("@address", entity.address);
                     conn.Open();
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -38,19 +37,18 @@ namespace SM.DataAccess
             return result;
         }
 
-        public bool Update(Supplier entity)
+        public bool Update(Customer entity)
         {
             bool result = false;
             using (SqlConnection conn = new SqlConnection(_strConn))
             {
-                using (SqlCommand cmd = new SqlCommand("spSupplierUpdate", conn))
+                using (SqlCommand cmd = new SqlCommand("spCustomerUpdate", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@supplierID", entity.supplierID);
+                    cmd.Parameters.AddWithValue("@customerID", entity.customerID);
                     cmd.Parameters.AddWithValue("@name", entity.name);
+                    cmd.Parameters.AddWithValue("@lastname", entity.lastname);
                     cmd.Parameters.AddWithValue("@phone", entity.phone);
-                    cmd.Parameters.AddWithValue("@email", entity.email);
-                    cmd.Parameters.AddWithValue("@address", entity.address);
                     conn.Open();
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -63,10 +61,10 @@ namespace SM.DataAccess
             bool result = false;
             using (SqlConnection conn = new SqlConnection(_strConn))
             {
-                using (SqlCommand cmd = new SqlCommand("spSupplierDelete", conn))
+                using (SqlCommand cmd = new SqlCommand("SpCustomerDelete", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@supplierID", id);
+                    cmd.Parameters.AddWithValue("@customerID", id);
                     conn.Open();
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -74,12 +72,12 @@ namespace SM.DataAccess
             return result;
         }
 
-        public List<Supplier> SelectAll()
+        public List<Customer> SelectAll()
         {
-            List<Supplier> result = null;
+            List<Customer> result = null;
             using (SqlConnection conn = new SqlConnection(_strConn))
             {
-                using (SqlCommand cmd = new SqlCommand("spSupplierSelectAll", conn))
+                using (SqlCommand cmd = new SqlCommand("spCustomerSelectAll", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     conn.Open();
@@ -87,16 +85,15 @@ namespace SM.DataAccess
                     {
                         if (dr != null)
                         {
-                            result = new List<Supplier>();
+                            result = new List<Customer>();
                             while (dr.Read())
                             {
-                                Supplier entity = new Supplier()
+                                Customer entity = new Customer()
                                 {
-                                    supplierID = dr.GetInt32(0),
+                                    customerID = dr.GetInt32(0),
                                     name = dr.GetString(1),
-                                    phone = dr.GetString(2),
-                                    email = dr.GetString(3),
-                                    address = dr.GetString(4),
+                                    lastname = dr.GetString(2),
+                                    phone = dr.GetString(3),
                                 };
                                 result.Add(entity);
                             }
@@ -107,17 +104,15 @@ namespace SM.DataAccess
             return result;
         }
 
-
-
-        public Supplier SelectById(int id)
+        public Customer SelectById(int id)
         {
-            Supplier result = null;
+            Customer result = null;
             using (SqlConnection conn = new SqlConnection(_strConn))
             {
-                using (SqlCommand cmd = new SqlCommand("spSupplierSelectByID", conn))
+                using (SqlCommand cmd = new SqlCommand("spCustomerSelectByID", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@supplierID", id);
+                    cmd.Parameters.AddWithValue("@customerID", id);
                     conn.Open();
 
                     using (SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.SingleResult))
@@ -126,10 +121,12 @@ namespace SM.DataAccess
                         {
                             while (dr.Read())
                             {
-                                result = new Supplier()
+                                result = new Customer()
                                 {
-                                    supplierID = dr.GetInt32(0),
+                                    customerID = dr.GetInt32(0),
                                     name = dr.GetString(1),
+                                    lastname = dr.GetString(2),
+                                    phone = dr.GetString(3),
                                 };
                             }
                         }
@@ -138,24 +135,6 @@ namespace SM.DataAccess
             }
             return result;
         }
-
-        public List<Supplier> GetSu() { List<Supplier> result = null; 
-            using (SqlConnection conn = new SqlConnection(_strConn)) 
-            { 
-                using (SqlCommand cmd = new SqlCommand("GetSupplier", conn)) 
-                { 
-                    cmd.CommandType = CommandType.StoredProcedure; conn.Open(); 
-                    using (SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.SingleResult))
-                    { 
-                        if (dr != null)
-                        { 
-                            result = new List<Supplier>(); 
-                            while (dr.Read()) 
-                            { 
-                                Supplier entity = new Supplier() 
-                        { 
-                                    name = dr.GetString(0) 
-                                }; result.Add(entity); } } } } } return result; }
 
     }
 }

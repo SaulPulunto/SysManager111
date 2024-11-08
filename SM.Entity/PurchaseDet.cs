@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SM.Entity
 {
-    public class Sale
+    public class PurchaseDet
     {
-        public int SaleId { get; set; }
+        public int purchaseDetID { get; set; }
         public DateTime Date { get; set; }
-        public int usersID { get; set; }
         public decimal Total { get; set; }
     }
 }
