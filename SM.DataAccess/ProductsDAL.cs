@@ -154,6 +154,33 @@ namespace SM.DataAccess
             }
             return result;
         }
-            
+
+        public List<Products> GetPro()
+        {
+            List<Products> result = null;
+            using (SqlConnection conn = new SqlConnection(_strConn))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetProducts", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure; conn.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.SingleResult))
+                    {
+                        if (dr != null)
+                        {
+                            result = new List<Products>();
+                            while (dr.Read())
+                            {
+                                Products entity = new Products()
+                                {
+                                    productName = dr.GetString(0)
+                                }; result.Add(entity);
+                            }
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
     }
 }

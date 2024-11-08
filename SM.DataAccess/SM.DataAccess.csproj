@@ -51,6 +51,8 @@
     <Compile Include="ProductsDAL.cs" />
     <Compile Include="ProductTypeDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseDAL.cs" />
+    <Compile Include="PurchaseDetDAL.cs" />
     <Compile Include="RoleDAL.cs" />
     <Compile Include="SaleDAL.cs" />
     <Compile Include="StockDAL.cs" />
