@@ -45,6 +45,7 @@
     <Compile Include="Brand.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="Dept.cs" />
     <Compile Include="History.cs" />
     <Compile Include="Invoice.cs" />

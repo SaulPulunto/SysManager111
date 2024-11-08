@@ -9,10 +9,9 @@ namespace SM.Entity
 {
     public class Sale
     {
-        public int saleID { get; set; }
-        public int invoiceID { get; set; }
-        public int productsID { get; set; }
-        public string quantity { get; set; }
-        public SqlMoney price { get; set; }
+        public int SaleId { get; set; }
+        public DateTime Date { get; set; }
+        public int usersID { get; set; }
+        public decimal Total { get; set; }
     }
 }

@@ -73,5 +73,17 @@ namespace SM.View
             form1.Show();
             this.Hide();
         }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            CustomerForm form1 = new CustomerForm();
+            form1.Show();
+            this.Hide();
+        }
+
+        private void btnSale_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
